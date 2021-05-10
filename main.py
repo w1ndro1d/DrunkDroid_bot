@@ -40,12 +40,20 @@ async def ddping(ctx):
 @drunkdroid.command()
 async def dogfact(ctx):
   fact_url='https://some-random-api.ml/facts/dog'
-  r = requests.get(fact_url).json()
-  desc = r['fact']
-  embed = discord.Embed(title="Doggo Fact", colour=discord.Colour.blue())
-  embed.add_field(name="Fact", value = str(desc))
+  f = requests.get(fact_url).json()
+  desc = f['fact']
+  embed = discord.Embed(title="Here you go :)", colour=discord.Colour.orange())
+  embed.add_field(name="Doggo Fact", value = str(desc))
   await ctx.send(embed=embed)
-  
+
+@drunkdroid.command()
+async def dogpic(ctx):
+  image_url='https://some-random-api.ml/img/dog'
+  img= requests.get(image_url).json()
+  embed = discord.Embed(title="Here comes a cute doggo :)", colour=discord.Colour.orange())
+  embed.set_image(url=img['link'])
+  await ctx.send(embed=embed)
+
 
 
 drunkdroid.run(os.environ['token'])

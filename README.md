@@ -1,0 +1,1 @@
+This is drunkdroid. He is always drunk and likes to interrupt users when they start typing. He doesn't want to speak until you want to speak. He gets a little annoying 'sometimes'. drunkdroid loves dogs. That's why he only displays random dog facts and random dog pictures he pulls from the internet.

@@ -2,6 +2,7 @@ import os
 import discord
 from aiohttp import request
 from discord import Embed
+import requests
 
 from discord.ext import commands
 from discord.ext.commands import Bot
@@ -39,26 +40,12 @@ async def ddping(ctx):
 @drunkdroid.command()
 async def dogfact(ctx):
   fact_url='https://some-random-api.ml/facts/dog'
-  image_url='https://some-random-api.ml/img/dog'
-
-  async with request("GET",image_url) as response:
-    if response.status==200:
-      data=await response.json()
-      image_link=data['link']
-    else:
-      image_link=None
-
-  async with request("GET",fact_url) as response:
-    if response.status==200:
-      data=await response.json()
-      embed=Embed(title="Random doggo fact",description=data['fact'],colour=ctx.author.colour)
-      if(image_link is not None):
-        embed.set_image(url=image_link)
-      await ctx.send(embed)
-    else:
-      await ctx.send(f'The API returned a {response.status} status.')
-
-
+  r = requests.get(fact_url).json()
+  desc = r['fact']
+  embed = discord.Embed(title="Doggo Fact", colour=discord.Colour.blue())
+  embed.add_field(name="Fact", value = str(desc))
+  await ctx.send(embed=embed)
+  
 
 
 drunkdroid.run(os.environ['token'])

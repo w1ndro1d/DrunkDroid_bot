@@ -38,20 +38,25 @@ async def on_ready():
 
 @drunkdroid.event
 async def on_typing(channel, user, when):
-  if user.bot:
-    return
-  if drunkdroid.previous_typer==user.id:
-    return
+  prob_annoy=[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+  if random.choice(prob_annoy)==1:
+    if user.bot:
+      return
+    if drunkdroid.previous_typer==user.id:
+      return
+    else:
+      drunkdroid.previous_typer=user.id
+    await channel.send("Oi "+f"{user.mention}"+" Type faster. I don't have all day. I have bottles to drink! :woozy_face:")
   else:
-    drunkdroid.previous_typer=user.id
-  await channel.send("Oi "+f"{user.mention}"+" Type faster. I don't have all day. I have bottles to drink! :woozy_face:")
+    return
+
 
 
 @drunkdroid.event
 async def on_message(message):
   if message.author.bot:
     return
-  if 'drunkdroid' in message.content or 'quotes' in message.content or 'drunk' in message.content:
+  if 'drunkdroid' in message.content.lower() or 'quotes' in message.content or 'drunk' in message.content.lower():
     responses=["One should always be drunk. That's all that matters...But with what? With wine, with poetry, or with virtue, as you chose. But get drunk. -Charles Baudelaire, Paris Spleen",
     "A man's true character comes out when he's drunk. -Charlie Drunklin",
     "And in the end, we were all just humans.. drunk on the idea that love, only love, could heal our brokenness. -Christopher Poindexter",
@@ -75,7 +80,7 @@ async def on_message(message):
     "...drunks and leggings always tell the truth. -Abby Jimenez, The Friend Zone",
     "I have met drunken ladies during my travels, it is okay until they vomit all over you! -Steven Magee",
     "I accept no responsibility for anything I did while drunk. -drunkdroid"]
-    await message.channel.send(random.choice(responses))
+    await message.channel.send("```"+random.choice(responses)+"```")
   if 'sucks' in message.content or 'you suck' in message.content or 'bot sucks' in message.content or 'hate this bot' in message.content:
    await message.channel.send("No "+f"{message.author.mention}. You suck! :angry:")
   await drunkdroid.process_commands(message) 
@@ -100,7 +105,7 @@ async def dogfact(ctx):
 async def dogpic(ctx):
   image_url='https://some-random-api.ml/img/dog'
   img= requests.get(image_url).json()
-  embed = discord.Embed(title="Here comes a cute doggo :)", colour=discord.Colour.orange())
+  embed = discord.Embed(title="Here comes a cute doggo :smile:", colour=discord.Colour.orange())
   embed.set_image(url=img['link'])
   await ctx.send(embed=embed)
 

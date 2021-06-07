@@ -11,6 +11,16 @@ import random
 
 drunkdroid = commands.Bot(command_prefix='.')
 drunkdroid.previous_typer=0
+drunkdroid.remove_command("help")
+
+@drunkdroid.group(invoke_without_command=True)
+async def help(ctx):
+  em=discord.Embed(title="Help", description="Use .help <command> for extended info.", colour=discord.Colour.orange())
+  em.add_field(name="Doggo Lovers",value="dogfact, dogpic")
+  em.add_field(name="Status",value="ddping")
+  em.add_field(name="Key Words",value="drunkdroid, quotes, drunk, suck, hate this bot")
+  await ctx.send(embed=em)
+
 
 @drunkdroid.event
 async def on_member_join(member,message):
@@ -83,7 +93,7 @@ async def on_message(message):
     "I accept no responsibility for anything I did while drunk. -drunkdroid"]
     await message.channel.send("```"+random.choice(responses)+"```")
     await message.add_reaction("🥴")
-  if 'sucks' in message.content or 'you suck' in message.content or 'bot sucks' in message.content or 'hate this bot' in message.content:
+  if 'suck' in message.content or 'hate this bot' in message.content:
    await message.channel.send("No "+f"{message.author.mention}. You suck! :angry:")
    await message.add_reaction("😡")
    await message.add_reaction("🤬")

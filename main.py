@@ -124,4 +124,4 @@ async def dogpic(ctx):
   await ctx.send(embed=embed)
 
 
-drunkdroid.run(os.environ['token'])
+drunkdroid.run(os.environ['ODMzNjkxMjM2MTg2ODQ5MzYw.YH2Bdw.MWxqgLAgguI5odTcn7t4CLXCASg'])

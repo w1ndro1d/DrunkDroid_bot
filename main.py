@@ -57,6 +57,7 @@ async def on_message(message):
   if message.author.bot:
     return
   if 'drunkdroid' in message.content.lower() or 'quotes' in message.content or 'drunk' in message.content.lower():
+
     responses=["One should always be drunk. That's all that matters...But with what? With wine, with poetry, or with virtue, as you chose. But get drunk. -Charles Baudelaire, Paris Spleen",
     "A man's true character comes out when he's drunk. -Charlie Drunklin",
     "And in the end, we were all just humans.. drunk on the idea that love, only love, could heal our brokenness. -Christopher Poindexter",
@@ -81,8 +82,11 @@ async def on_message(message):
     "I have met drunken ladies during my travels, it is okay until they vomit all over you! -Steven Magee",
     "I accept no responsibility for anything I did while drunk. -drunkdroid"]
     await message.channel.send("```"+random.choice(responses)+"```")
+    await message.add_reaction("🥴")
   if 'sucks' in message.content or 'you suck' in message.content or 'bot sucks' in message.content or 'hate this bot' in message.content:
    await message.channel.send("No "+f"{message.author.mention}. You suck! :angry:")
+   await message.add_reaction("😡")
+   await message.add_reaction("🤬")
   await drunkdroid.process_commands(message) 
 
 
@@ -108,8 +112,6 @@ async def dogpic(ctx):
   embed = discord.Embed(title="Here comes a cute doggo :smile:", colour=discord.Colour.orange())
   embed.set_image(url=img['link'])
   await ctx.send(embed=embed)
-
-
 
 
 drunkdroid.run(os.environ['token'])

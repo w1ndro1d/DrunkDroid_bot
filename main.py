@@ -24,15 +24,23 @@ async def help(ctx):
 
 @drunkdroid.event
 async def on_member_join(member,message):
-    await member.create_dm()
-    await member.dm_channel.send(f'Hi {member.name}, hehe boiiiii')
+    mbed=discord.Embed(
+      colour=discord.Colour.orange(),
+      title="Welcome!",
+      description=f"Hi {member.mention} hehe boiiiii! Becoming a pidit is a way of life. Good on ya!"
+    )
+    await member.send(embed=mbed)
     await message.channel.send(f'{member} has chosen the life of a Pidit. Very wise decision!')
-
+   
 
 @drunkdroid.event
 async def on_member_remove(member,message):
-  await member.create_dm()
-  await member.dm_channel.send(f"{member.name}, you left? Well, being a pidit isn't everyone's cup of tea. But once you become a pidit, its a way of life. Don't forget that!")
+  mbed=discord.Embed(
+      colour=discord.Colour.orange(),
+      title="Goodbye!",
+      description=f"{member.mention}, you left? Well, being a pidit isn't everyone's cup of tea. But once you become a pidit, its a way of life. Don't forget that!"
+    )
+  await member.send(embed=mbed)
   await message.channel.send(f'{member} has sadly left the server. We will miss you :/ JK :P')
 
 

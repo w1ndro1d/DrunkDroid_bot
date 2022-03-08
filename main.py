@@ -58,7 +58,7 @@ async def on_ready():
 @drunkdroid.command()
 async def maticfomo(ctx):
   asession = AsyncHTMLSession()
-  r = asession.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
+  r = await asession.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
   
   script = """document.getElementsByClassName("col-md-8")[0].textContent"""
   val = await r.html.arender(script=script, reload=False)

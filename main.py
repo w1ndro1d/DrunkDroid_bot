@@ -53,7 +53,7 @@ async def on_ready():
     print('---------------')
     await drunkdroid.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Pidits suffer"))
 
-@deunkdroid.command
+@drunkdroid.command
 async def maticfomo(ctx):
   if message.author.bot:
     return

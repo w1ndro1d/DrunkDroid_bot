@@ -61,7 +61,7 @@ async def maticfomo(ctx):
   soup = BeautifulSoup(r.content, "lxml")
   g_data = soup.find("div", {"class": "col-md-8"})
 
-  val = g_data[0].text
+  val = g_data[0].findAll('div',{"class": "col-md-8"})[0].text
   embed = discord.Embed(title="MaticFomo", colour=discord.Colour.orange(), description={val})
   await ctx.send(embed=embed)
   

@@ -93,7 +93,7 @@ async def on_typing(channel, user, when):
       return
     else:
       drunkdroid.previous_typer=user.id
-    await channel.send("Oi "+f"{user.mention}"+" Type faster. I don't have all day. I have bottles to drink! :woozy_face:")
+    await channel.send("Sahi kura garyo @VSnake bro le. Jhyap ho vandai ma kaam nai nalagne ta haina ni ma :woozy_face:")
   else:
     return
 

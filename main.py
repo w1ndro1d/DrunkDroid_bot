@@ -60,7 +60,7 @@ async def maticfomo(ctx):
   r = requests.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
   soup = BeautifulSoup(r.content, "lxml")
 
-  val = soup[0].findAll('div',{"class": "col-md-8"})[0].text
+  val = soup[0].find_all('div',{"class": "col-md-8"})[0].text
   embed = discord.Embed(title="MaticFomo", colour=discord.Colour.orange(), description={val})
   await ctx.send(embed=embed)
   

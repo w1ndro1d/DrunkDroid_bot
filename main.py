@@ -57,11 +57,13 @@ async def on_ready():
 
 @drunkdroid.command()
 async def maticfomo(ctx):
-  asession = AsyncHTMLSession()
+  asession = AsyncHTMLSession() 
+
   r = await asession.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
-  
   script = """document.getElementsByClassName("col-md-8")[0].textContent"""
+ 
   val = await r.html.arender(script=script, reload=False)
+  await asession.close() # this part is important otherwise the Unwanted Kill.Chrome Error can Occur 
   
   embed = discord.Embed(title="MaticFomo", colour=discord.Colour.orange(), description={val})
   await ctx.send(embed=embed)

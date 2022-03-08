@@ -8,8 +8,8 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import time
 import random
-from requests_html import HTML
-from requests_html import AsyncHTMLSession
+import requests
+from bs4 import BeautifulSoup
 
 
 drunkdroid = commands.Bot(command_prefix='.')
@@ -57,14 +57,11 @@ async def on_ready():
 
 @drunkdroid.command()
 async def maticfomo(ctx):
-  asession = AsyncHTMLSession() 
+  r = requests.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
+  soup = BeautifulSoup(r.content, "lxml")
+  g_data = soup.find_all("div", {"class": "col-md-8"})
 
-  r = await asession.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
-  script = """document.getElementsByClassName("col-md-8")[0].textContent"""
- 
-  val = await r.html.arender(script=script, reload=False)
-  await asession.close() # this part is important otherwise the Unwanted Kill.Chrome Error can Occur 
-  
+  val = g_data[1]
   embed = discord.Embed(title="MaticFomo", colour=discord.Colour.orange(), description={val})
   await ctx.send(embed=embed)
   

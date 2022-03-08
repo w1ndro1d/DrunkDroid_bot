@@ -56,10 +56,11 @@ async def on_ready():
 
 @drunkdroid.command()
 async def maticfomo(ctx):
-  doc = """<a href='https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696'>"""
-  html = HTML(html=doc, async_=True)
+  asession = AsyncHTMLSession()
+  r = asession.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
+  
   script = """document.getElementsByClassName("col-md-8")[0].textContent"""
-  val = await html.arender(script=script, reload=False)
+  val = await r.html.arender(script=script, reload=False)
   
   embed = discord.Embed(title="MaticFomo", colour=discord.Colour.orange(), description={val})
   await ctx.send(embed=embed)

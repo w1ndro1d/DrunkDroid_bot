@@ -9,6 +9,7 @@ from discord.ext.commands import Bot
 import time
 import random
 from requests_html import HTML
+from requests_html import AsyncHTMLSession
 
 
 drunkdroid = commands.Bot(command_prefix='.')

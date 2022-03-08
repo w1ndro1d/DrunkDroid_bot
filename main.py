@@ -8,6 +8,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import time
 import random
+from requests_html import HTML
 
 drunkdroid = commands.Bot(command_prefix='.')
 drunkdroid.previous_typer=0
@@ -52,6 +53,16 @@ async def on_ready():
     print('---------------')
     await drunkdroid.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Pidits suffer"))
 
+@deunkdroid.command
+async def maticfomo(ctx):
+  if message.author.bot:
+    return
+  html = HTML(html="<a href='https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696'>")
+  script = """document.getElementsByClassName("col-md-8")[0].textContent"""
+  val = html.render(script=script, reload=False)
+  embed = discord.Embed(title="MaticFomo", colour=discord.Colour.orange())
+  await ctx.send(embed=embed)
+  
 
 
 @drunkdroid.event

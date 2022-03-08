@@ -9,6 +9,7 @@ from discord.ext.commands import Bot
 import time
 import random
 from requests_html import HTML
+from requests_html import AsyncHTMLSession
 
 drunkdroid = commands.Bot(command_prefix='.')
 drunkdroid.previous_typer=0
@@ -55,9 +56,9 @@ async def on_ready():
 
 @drunkdroid.command()
 async def maticfomo(ctx):
-  session = HTMLSession()
-  r = session.get("https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696")
-  script = """document.getElementsByClassName("col-md-8")[0].textContent"""
+  asession = AsyncHTMLSession()
+  r = await asession.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
+  script = "document.getElementsByClassName("col-md-8")[0].textContent"
   val = r.render(script=script, reload=False)
   embed = discord.Embed(title="MaticFomo", colour=discord.Colour.orange(), description={val})
   await ctx.send(embed=embed)

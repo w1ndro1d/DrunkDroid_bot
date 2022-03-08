@@ -55,8 +55,6 @@ async def on_ready():
 
 @drunkdroid.command()
 async def maticfomo(ctx):
-  if message.author.bot:
-    return
   html = HTML(html="<a href='https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696'>")
   script = """document.getElementsByClassName("col-md-8")[0].textContent"""
   val = html.render(script=script, reload=False)

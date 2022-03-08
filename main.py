@@ -61,9 +61,26 @@ async def maticfomo(ctx):
   soup = BeautifulSoup(r.content, "lxml")
 
   val = soup.find('div', {'class' :'col-md-8'}).text
-  embed = discord.Embed(title="MaticFomo", colour=discord.Colour.orange(), description=val)
+  embed = discord.Embed(title="MaticFomo Contract Balance", colour=discord.Colour.orange(), description=val)
   await ctx.send(embed=embed)
   
+@drunkdroid.command()
+async def maticstaker(ctx):
+  r = requests.get('https://polygonscan.com/address/0xda3f4d9509c1881f0661bc943db23024b7de2f82')
+  soup = BeautifulSoup(r.content, "lxml")
+
+  val = soup.find('div', {'class' :'col-md-8'}).text
+  embed = discord.Embed(title="MaticStaker Contract Balance", colour=discord.Colour.orange(), description=val)
+  await ctx.send(embed=embed)
+  
+@drunkdroid.command()
+async def multimatic(ctx):
+  r = requests.get('https://polygonscan.com/address/0x14b842326592281135E5D6e1cB6be8C54dB87Ee6')
+  soup = BeautifulSoup(r.content, "lxml")
+
+  val = soup.find('div', {'class' :'col-md-8'}).text
+  embed = discord.Embed(title="MultiMatic Contract Balance", colour=discord.Colour.orange(), description=val)
+  await ctx.send(embed=embed)
 
 
 @drunkdroid.event

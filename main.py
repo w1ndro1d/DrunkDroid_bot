@@ -54,6 +54,15 @@ async def on_ready():
     print(drunkdroid.user.id)
     print('---------------')
     await drunkdroid.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Pidits suffer"))
+    
+@drunkdroid.command()
+async def maticking(ctx):
+  r = requests.get('https://polygonscan.com/address/0x799a2b1b0a84a943501ddc40ab82b9735e8ae6cb')
+  soup = BeautifulSoup(r.content, "lxml")
+
+  val = soup.find('div', {'class' :'card-body'}).text
+  embed = discord.Embed(title="MaticKing Contract Balance", colour=discord.Colour.orange(), description=val)
+  await ctx.send(embed=embed)
 
 @drunkdroid.command()
 async def maticfomo(ctx):

@@ -83,6 +83,15 @@ async def maticstaker(ctx):
   await ctx.send(embed=embed)
   
 @drunkdroid.command()
+async def maticvault(ctx):
+  r = requests.get('https://polygonscan.com/address/0x10E099ecAe6B611294a1ffd4731325c97B9E3d00#code')
+  soup = BeautifulSoup(r.content, "lxml")
+
+  val = soup.find('div', {'class' :'col-md-8'}).text
+  embed = discord.Embed(title="MaticStaker Contract Balance", colour=discord.Colour.orange(), description=val)
+  await ctx.send(embed=embed)
+  
+@drunkdroid.command()
 async def multimatic(ctx):
   r = requests.get('https://polygonscan.com/address/0x14b842326592281135E5D6e1cB6be8C54dB87Ee6')
   soup = BeautifulSoup(r.content, "lxml")

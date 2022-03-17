@@ -88,7 +88,7 @@ async def maticvault(ctx):
   soup = BeautifulSoup(r.content, "lxml")
 
   val = soup.find('div', {'class' :'col-md-8'}).text
-  embed = discord.Embed(title="MaticStaker Contract Balance", colour=discord.Colour.orange(), description=val)
+  embed = discord.Embed(title="MaticVault Contract Balance", colour=discord.Colour.orange(), description=val)
   await ctx.send(embed=embed)
   
 @drunkdroid.command()

@@ -55,51 +55,6 @@ async def on_ready():
     print('---------------')
     await drunkdroid.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Pidits suffer"))
     
-@drunkdroid.command()
-async def maticking(ctx):
-  r = requests.get('https://polygonscan.com/address/0x799a2b1b0a84a943501ddc40ab82b9735e8ae6cb')
-  soup = BeautifulSoup(r.content, "lxml")
-
-  val = soup.find('div', {'class' :'card-body'}).text
-  embed = discord.Embed(title="MaticKing Contract Balance", colour=discord.Colour.orange(), description=val)
-  await ctx.send(embed=embed)
-
-@drunkdroid.command()
-async def maticfomo(ctx):
-  r = requests.get('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696')
-  soup = BeautifulSoup(r.content, "lxml")
-
-  val = soup.find('div', {'class' :'card-body'}).text
-  embed = discord.Embed(title="MaticFomo Contract Balance", colour=discord.Colour.orange(), description=val)
-  await ctx.send(embed=embed)
-  
-@drunkdroid.command()
-async def maticstaker(ctx):
-  r = requests.get('https://polygonscan.com/address/0xda3f4d9509c1881f0661bc943db23024b7de2f82')
-  soup = BeautifulSoup(r.content, "lxml")
-
-  val = soup.find('div', {'class' :'col-md-8'}).text
-  embed = discord.Embed(title="MaticStaker Contract Balance", colour=discord.Colour.orange(), description=val)
-  await ctx.send(embed=embed)
-  
-@drunkdroid.command()
-async def maticvault(ctx):
-  r = requests.get('https://polygonscan.com/address/0x10E099ecAe6B611294a1ffd4731325c97B9E3d00#code')
-  soup = BeautifulSoup(r.content, "lxml")
-
-  val = soup.find('div', {'class' :'col-md-8'}).text
-  embed = discord.Embed(title="MaticVault Contract Balance", colour=discord.Colour.orange(), description=val)
-  await ctx.send(embed=embed)
-  
-@drunkdroid.command()
-async def multimatic(ctx):
-  r = requests.get('https://polygonscan.com/address/0x14b842326592281135E5D6e1cB6be8C54dB87Ee6')
-  soup = BeautifulSoup(r.content, "lxml")
-
-  val = soup.find('div', {'class' :'col-md-8'}).text
-  embed = discord.Embed(title="MultiMatic Contract Balance", colour=discord.Colour.orange(), description=val)
-  await ctx.send(embed=embed)
-
 
 @drunkdroid.event
 async def on_typing(channel, user, when):
@@ -111,7 +66,14 @@ async def on_typing(channel, user, when):
       return
     else:
       drunkdroid.previous_typer=user.id
-    await channel.send("Oi "+f"{user.mention}"+" Type faster. I don't have all day. I have bottles to drink! :woozy_face:")
+    responses=["Oi "+f'{user.mention}'+" Type faster. I don't have all day. I have bottles to drink! :woozy_face:", 
+    "Ma jhyaap xu kta ho :woozy_face:", 
+    "@legend4545 noobde ho :woozy_face:", 
+    "@Nightmare crouch strafe sprayer ho :woozy_face:",
+    "@Suman_Aryal phantom sprayer ho :woozy_face:",
+    "Oi "+f'{user.mention}'+" Beer khane? :woozy_face:",
+    "I accept no responsibility for anything I did while drunk. -drunkdroid"]
+    await channel.send("```"+random.choice(responses)+"```")
   else:
     return
 

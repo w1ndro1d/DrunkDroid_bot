@@ -19,13 +19,14 @@ drunkdroid.remove_command("help")
 
 
 @drunkdroid.group(invoke_without_command=True)
-async def help(ctx):
+async def ddhelp(ctx):
     em = discord.Embed(
-        title="Help", description="Use .help <command> for extended info.", colour=discord.Colour.orange())
-    em.add_field(name="Doggo Lovers", value="dogfact, dogpic")
-    em.add_field(name="Status", value="ddping")
-    em.add_field(name="Key Words",
+        title="Help", colour=discord.Colour.orange())
+    em.add_field(name="For dog lovers", value=".dogfact, .dogpic")
+    em.add_field(name="Latency check", value=".ddping")
+    em.add_field(name="Keywords that trigger me",
                  value="drunkdroid, quotes, drunk, suck, hate this bot")
+    em.add_field(name="Ping a user", value=".ping, .ultraping")
     await ctx.send(embed=em)
 
 
@@ -153,19 +154,22 @@ async def on_message(message):
 async def ddping(ctx):
     await ctx.send(f'{round(drunkdroid.latency*1000)}ms')
 
+
 @drunkdroid.command()
 async def ping(ctx, user: discord.User):
-  i=0
-  for i in range(5):
-    await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")
-    time.sleep(3)
+    i = 0
+    for i in range(5):
+        await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")
+        time.sleep(3)
+
 
 @drunkdroid.command()
 async def ultraping(ctx, user: discord.User):
-  i=0
-  for i in range(10):
-    await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")
-    time.sleep(1)
+    i = 0
+    for i in range(10):
+        await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")
+        time.sleep(1)
+
 
 @drunkdroid.command()
 async def dogfact(ctx):

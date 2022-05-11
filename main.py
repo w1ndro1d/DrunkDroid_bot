@@ -158,17 +158,24 @@ async def ddping(ctx):
 @drunkdroid.command()
 async def ping(ctx, user: discord.User):
     i = 0
-    for i in range(5):
-        await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")
-        time.sleep(3)
+    if user == "w-i-n-d-r-o-i-d#8960":
+        await ctx.send("Sorry, he's immune to this command. You can't uno reverse card a god!")
+    else:
+        for i in range(5):
+            print(user)
+            await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")
+            time.sleep(3)
 
 
 @drunkdroid.command()
 async def ultraping(ctx, user: discord.User):
     i = 0
-    for i in range(10):
-        await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")
-        time.sleep(1)
+    if user == "w-i-n-d-r-o-i-d#8960":
+        await ctx.send("Sorry, he's immune to this command. You can't uno reverse card a god!")
+    else:
+        for i in range(10):
+            await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")
+            time.sleep(1)
 
 
 @drunkdroid.command()

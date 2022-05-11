@@ -6,6 +6,7 @@ import requests
 from datetime import datetime
 from discord.ext import commands
 from discord.ext.commands import Bot
+from discord.ext import tasks
 import time
 import random
 import requests
@@ -24,6 +25,9 @@ async def help(ctx):
   em.add_field(name="Key Words",value="drunkdroid, quotes, drunk, suck, hate this bot")
   await ctx.send(embed=em)
 
+@tasks.loop(seconds=2.0, count=5)
+async def pinguser(user, channel):
+    await channel.send(f'{user.mention}'+" Your friends are waiting for you in VC. Come let's play VALORANT!"
 
 @drunkdroid.event
 async def on_member_join(member,message):
@@ -121,6 +125,7 @@ async def on_message(message):
 async def ddping(ctx):
   await ctx.send(f'{round(drunkdroid.latency*1000)}ms')
 
+  
 
 @drunkdroid.command()
 async def dogfact(ctx):

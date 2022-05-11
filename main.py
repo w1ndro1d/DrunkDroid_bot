@@ -158,7 +158,7 @@ async def ddping(ctx):
 @drunkdroid.command()
 async def ping(ctx, user: discord.User):
     i = 0
-    if user == "w-i-n-d-r-o-i-d#8960":
+    if "w-i-n-d-r-o-i-d" in user.name:
         await ctx.send("Sorry, he's immune to this command. You can't uno reverse card a god!")
     else:
         for i in range(5):
@@ -170,7 +170,7 @@ async def ping(ctx, user: discord.User):
 @drunkdroid.command()
 async def ultraping(ctx, user: discord.User):
     i = 0
-    if user == "w-i-n-d-r-o-i-d#8960":
+    if "w-i-n-d-r-o-i-d" in user.name:
         await ctx.send("Sorry, he's immune to this command. You can't uno reverse card a god!")
     else:
         for i in range(10):

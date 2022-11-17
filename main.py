@@ -78,10 +78,24 @@ async def on_typing(channel, user, when):
             drunkdroid.previous_typer = user.id
         responses = ["Oi "+f'{user.mention}'+" Type faster. I don't have all day. I have bottles to drink! 🥴",
                      "Ma jhyaap xu kta ho. 🥴",
+                     "Bulbul.",
+                     "Sahi ho, haha.",
+                     "Champaklal le hepdo raixa yar. Champake noob.",
+                     "I may be drunk, Miss, but in the morning I will be sober and you will still be ugly.",
+                     "atitkh#1327 VolteX vandal sprayer ho. 🥴",
+                     "One should always be drunk. That's all that matters...But with what? With wine, with poetry, or with virtue, as you chose. But get drunk.",
+                     "Noob! Type faster!!",
+                     "Drunken men give some of the best pep talks.",
+                     "Herb is the healing of a nation, alcohol is the destruction.",
+                     "I assure you, my friends, I am cone sold stober.",
+                     "One tequila, two tequila, three tequila, floor.",
+                     "Vikram begins!",
+                     "Oh? Rhina is on fire.",
+                     "I don't have a drinking problem, 'cept when I can't get a drink.",
                      "@legend4545 noobde ho. 🥴",
-                     "@Nightmare crouch strafe sprayer ho. 🥴",
-                     "@Suman_Aryal phantom sprayer ho. 🥴",
-                     "@w-i-n-d-r-o-i-d is a god. 🥴",
+                     "@ankit#6969 Nightmare crouch strafe sprayer ho. 🥴",
+                     "@Suman_Aryal#1495 Suman_Aryal phantom sprayer ho. 🥴",
+                     "WINDROID is my god, and yours too. 🥴",
                      "Oi "+f'{user.mention}'+" Beer khane? 🥴",
                      "I accept no responsibility for anything I did while drunk. -drunkdroid 🥴",
                      "One should always be drunk. That's all that matters...But with what? With wine, with poetry, or with virtue, as you chose. But get drunk. -Charles Baudelaire, Paris Spleen",
@@ -159,7 +173,7 @@ async def ddping(ctx):
 async def ping(ctx, user: discord.User):
     i = 0
     if "w-i-n-d-r-o-i-d" in user.name:
-        await ctx.send("Sorry, he's immune to this command. You can't uno reverse card a god!")
+        await ctx.send("Sorry, he's immune to this command. You can't uno reverse card a god! Nice try noob.")
     else:
         for i in range(5):
             print(user)
@@ -171,7 +185,7 @@ async def ping(ctx, user: discord.User):
 async def ultraping(ctx, user: discord.User):
     i = 0
     if "w-i-n-d-r-o-i-d" in user.name:
-        await ctx.send("Sorry, he's immune to this command. You can't uno reverse card a god!")
+        await ctx.send("Sorry, he's immune to this command. You can't uno reverse card a god! That was a nice try though.")
     else:
         for i in range(10):
             await ctx.send(f'{user.mention}' + ", your friends are waiting for you in VC. Come let's play VALORANT!")

@@ -12,8 +12,8 @@ import random
 import requests
 from bs4 import BeautifulSoup
 
-
-drunkdroid = commands.Bot(command_prefix='.')
+intents = discord.intents.all()
+drunkdroid = commands.Bot(command_prefix='.', intents=intents)
 drunkdroid.previous_typer = 0
 drunkdroid.remove_command("help")
 
@@ -35,15 +35,15 @@ async def ddhelp(ctx):
 #     await ctx.send(f'{user.mention}'+" Your friends are waiting for you in VC. Come let's play VALORANT!")
 
 
-# @drunkdroid.event
-# async def on_member_join(member, message):
-#     mbed = discord.Embed(
-#         colour=discord.Colour.orange(),
-#         title="Welcome!",
-#         description=f"Hi {member.mention} hehe boiiiii! Becoming a pidit is a way of life. Good on ya!"
-#     )
-#     await member.send(embed=mbed)
-#     await message.channel.send(f'{member} has chosen the life of a Pidit. Very wise decision!')
+@drunkdroid.event
+async def on_member_join(member, message):
+    channel = drunkdroid.get_channel(625259838464589845)
+    mbed = discord.Embed(
+        colour=discord.Colour.orange(),
+        title="Welcome!",
+        description=f"Hello {member.mention}. Becoming a Pidit is a way of life. Welcome aboard!"
+    )
+    await message.channel.send(mbed)
 
 
 @drunkdroid.event
@@ -68,7 +68,7 @@ async def on_ready():
 
 @drunkdroid.event
 async def on_typing(channel, user, when):
-    prob_annoy = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+    prob_annoy = [0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.8, 0.9, 1]
     if random.choice(prob_annoy) == 1:
         if user.bot:
             return
@@ -78,11 +78,12 @@ async def on_typing(channel, user, when):
             drunkdroid.previous_typer = user.id
         responses = ["Oi "+f'{user.mention}'+" Type faster. I don't have all day. I have bottles to drink! 🥴",
                      "Ma jhyaap xu kta ho. 🥴",
+                     "LOL guys LOL.",
                      "Bulbul.",
                      "Sahi ho, haha.",
                      "Champaklal le hepdo raixa yar. Champake noob.",
                      "I may be drunk, Miss, but in the morning I will be sober and you will still be ugly.",
-                     "atitkh#1327 VolteX vandal sprayer ho. 🥴",
+                     f"<@{592748124020277259}> vandal sprayer ho. 🥴",
                      "One should always be drunk. That's all that matters...But with what? With wine, with poetry, or with virtue, as you chose. But get drunk.",
                      "Noob! Type faster!!",
                      "Drunken men give some of the best pep talks.",
@@ -91,10 +92,11 @@ async def on_typing(channel, user, when):
                      "One tequila, two tequila, three tequila, floor.",
                      "Vikram begins!",
                      "Oh? Rhina is on fire.",
+                     "Aaha, kati ramro. -bulbul",
                      "I don't have a drinking problem, 'cept when I can't get a drink.",
-                     "@legend4545 noobde ho. 🥴",
-                     "@ankit#6969 Nightmare crouch strafe sprayer ho. 🥴",
-                     "@Suman_Aryal#1495 Suman_Aryal phantom sprayer ho. 🥴",
+                     f"<@{625264621854392336}> noobde ho. 🥴",
+                     f"<@{239431431594442753}> Mote crouch strafe sprayer ho. 🥴",
+                     f"<@{722887645612605482}> Suman_Aryal phantom sprayer ho. 🥴",
                      "WINDROID is my god, and yours too. 🥴",
                      "Oi "+f'{user.mention}'+" Beer khane? 🥴",
                      "I accept no responsibility for anything I did while drunk. -drunkdroid 🥴",

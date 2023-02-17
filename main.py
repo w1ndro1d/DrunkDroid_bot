@@ -12,7 +12,7 @@ import random
 import requests
 from bs4 import BeautifulSoup
 
-intents = discord.intents.all()
+intents = discord.Intents.all()
 drunkdroid = commands.Bot(command_prefix='.', intents=intents)
 drunkdroid.previous_typer = 0
 drunkdroid.remove_command("help")
